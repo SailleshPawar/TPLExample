@@ -1,0 +1,40 @@
+﻿@model TPLClient.Models.Product
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>@Model.Heading</h2>
+       <table class="table table-striped table-bordered table-hover table-condensed">
+           
+           <thead>
+               <tr>
+                   <th>Product Name</th>
+                   <th>Discounted Price</th>
+                   <th>InventoryCount</th>
+                   <th>Total Execution Time taken</th>
+               </tr>
+           </thead>
+               <tbody>
+                   <tr>
+                       <td>
+                           @Model.Name
+                       </td>
+                       <td>
+                           @Model.DiscountedPrice
+                       </td>
+                       <td>
+                           @Model.InventoryCount
+                       </td>
+                       <td>
+                           @(String.Format("{0} {1}", Model.TotalExecutionTimeInSec, " Second"))
+
+                       </td>
+                   </tr>
+               </tbody>
+           </table>
+    </div>
+   
+</div>
