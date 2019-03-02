@@ -31,14 +31,8 @@ namespace AsyncAndAwait
         private async void btnFetch_Click(object sender, EventArgs e)
         {
             pictureBox1.Show();
+            var price1 = await FetchProductPriceAsync(10000);
             var price = await FetchProductPriceAsync(10000);
-            var t = FetchProductPriceAsync(10000).ContinueWith(x =>
-                  {
-                      CallMe(x.Result);
-                      // MessageBox.Show($"The actual price of product is {x.Result}");
-                  });
-
-            await t;
             pictureBox1.Hide();
              MessageBox.Show($"The actual price of product is {price}");
         }
@@ -51,7 +45,7 @@ namespace AsyncAndAwait
         {
 
             _client = new HttpClient();
-          var price=await _client.GetStringAsync("http://localhost:63922/api/Coupon/"+ productId);
+            var price=await _client.GetStringAsync("http://localhost:63922/api/Coupon/"+ productId);
             return Convert.ToInt32(price);
         }
 

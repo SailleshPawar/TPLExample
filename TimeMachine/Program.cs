@@ -12,14 +12,14 @@ namespace TimeMachine
         {
 
         }
-        //public static void PrintMe()
-        //{
-        //    Console.WriteLine("hello i am without async");
-        //}
-        public static async Task Print()
+        public static void PrintMe()
         {
-            Console.WriteLine("hello i am async");
+            Console.WriteLine("hello i am without async");
         }
+        //public static async Task Print()
+        //{
+        //    Console.WriteLine("hello i am async");
+        //}
 
     }
 }

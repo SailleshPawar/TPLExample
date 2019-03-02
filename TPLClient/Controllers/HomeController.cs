@@ -12,14 +12,19 @@ namespace TPLClient.Controllers
 {
     public class HomeController : Controller
     {
+
+
+        public void CallMe()
+        {
+            Console.WriteLine("hell");
+        }
         public async Task<ActionResult> Index()
         {
             HttpClient client =
-        new HttpClient() { MaxResponseContentBufferSize = 1000000 };
+            new HttpClient() { MaxResponseContentBufferSize = 1000000 };
 
             Stopwatch sw = new Stopwatch();
             sw.Start();
-
             Task<int> inventoryDownload =
                 ProcessURLAsync("http://localhost:63922/api/Inventory?productId=1", client);
             Task<int> MRPAfterCouponDownload =
@@ -52,7 +57,7 @@ namespace TPLClient.Controllers
         public ActionResult IndexSync()
         {
             HttpClient client =
-        new HttpClient() { MaxResponseContentBufferSize = 1000000 };
+              new HttpClient() { MaxResponseContentBufferSize = 1000000 };
 
             Stopwatch sw = new Stopwatch();
             sw.Start();

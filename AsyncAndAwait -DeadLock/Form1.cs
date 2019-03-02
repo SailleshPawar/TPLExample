@@ -27,7 +27,7 @@ namespace AsyncAndAwaitDeadlock
 
             //Task<int> tskPrice =FetchProductPriceAsync(10000);
             //var price=await tskPrice;
-            var price=  FetchProductPriceAsync(10000).Result;
+            var price=  FetchProductPriceAsync(10000);
             //var price =await tskPrice;
             pictureBox1.Hide();
             MessageBox.Show($"The actual price of product is {price}");
@@ -41,6 +41,7 @@ namespace AsyncAndAwaitDeadlock
            var price=await _client.GetStringAsync("http://localhost:63922/api/Coupon/"+ productId);
             return Convert.ToInt32(price);
         }
+      
 
         private void Form1_Load(object sender, EventArgs e)
         {
